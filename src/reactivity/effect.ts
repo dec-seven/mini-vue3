@@ -1,6 +1,6 @@
 /*
  * @Date: 2022-10-18 22:55:50
- * @LastEditTime: 2022-10-18 23:39:17
+ * @LastEditTime: 2022-10-20 15:14:34
  * @Description: 
  */
 
@@ -18,6 +18,11 @@ class ReactiveEffect{
 }
 
 const targetMap = new Map()
+/**
+ * 依赖收集
+ * @param target 
+ * @param key 
+ */
 export function track(target,key){
   // target -> key -> dep
   let depsMap = targetMap.get(target)
@@ -36,6 +41,11 @@ export function track(target,key){
   dep.add(activeEffect);
 }
 
+/**
+ * 触发依赖
+ * @param target 
+ * @param key 
+ */
 export function trigger(target, key){
   let depsMap = targetMap.get(target)
   let dep = depsMap.get(key)

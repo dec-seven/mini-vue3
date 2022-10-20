@@ -1,12 +1,16 @@
 /*
  * @Date: 2022-10-18 22:50:03
- * @LastEditTime: 2022-10-18 23:30:20
+ * @LastEditTime: 2022-10-20 15:09:50
  * @Description: 
  */
 import { track, trigger } from './effect'
 
 
-
+/**
+ * 返回一个对象的响应式代理
+ * @param raw 
+ * @returns 
+ */
 export function reactive(raw){
   
   return new Proxy(raw,{
